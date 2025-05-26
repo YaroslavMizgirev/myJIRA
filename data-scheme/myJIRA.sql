@@ -1,7 +1,7 @@
 BEGIN;
 
 -- ***********************************************************************************
---                           DROP TABLE
+--                              DROP TABLE
 -- ***********************************************************************************
 
 DROP TABLE IF EXISTS public.project_issue_type_workflow_defaults CASCADE;
@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS public.workflows CASCADE;
 DROP TABLE IF EXISTS public.users CASCADE;
 
 -- ***********************************************************************************
---                           CREATE TABLE
+--                              CREATE TABLE
 -- ***********************************************************************************
 
 CREATE TABLE IF NOT EXISTS public.issue_types(
@@ -516,7 +516,7 @@ COMMENT ON COLUMN public.user_groups.group_id IS 'Ссылка на группу
 
 
 -- ***********************************************************************************
---                           FOREIGN KEYS
+--                              FOREIGN KEYS
 -- ***********************************************************************************
 ALTER TABLE IF EXISTS public.issues
     ADD CONSTRAINT fk_issues_assignee FOREIGN KEY (assignee_id)
@@ -807,7 +807,7 @@ COMMENT ON CONSTRAINT fk_notification_queue_status ON public.notification_queue 
 
 
 -- ***********************************************************************************
---                           INDEXES FOR PERFORMANCE
+--                              INDEXES FOR PERFORMANCE
 -- ***********************************************************************************
 CREATE INDEX IF NOT EXISTS idx_issues_project_id ON public.issues (project_id);
 CREATE INDEX IF NOT EXISTS idx_issues_reporter_id ON public.issues (reporter_id);
