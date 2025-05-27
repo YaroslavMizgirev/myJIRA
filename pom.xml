@@ -259,7 +259,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin.version}</version>
 				<configuration>
-					<argLine>${surefireArgLine}</argLine>
+					<argLine>
+<!--						${surefireArgLine} -->
+						-javaagent:"${settings.localRepository}"/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar=inline
+					</argLine>
 					<excludes>
 						<exclude>**/*IntegrationTest.java</exclude>
 					</excludes>
@@ -284,7 +287,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<argLine>${failsafeArgLine}</argLine>
+					<argLine>
+<!--						${failsafeArgLine}-->
+						-javaagent:"${settings.localRepository}"/org/mockito/mockito-core/${mockito.version}/mockito-core-${mockito.version}.jar=inline
+					</argLine>
 					<includes>
 						<include>**/*IntegrationTest.java</include>
 						<include>**/*IT.java</include>

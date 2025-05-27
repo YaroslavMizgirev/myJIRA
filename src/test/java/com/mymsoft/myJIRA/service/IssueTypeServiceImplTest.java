@@ -1,6 +1,6 @@
 package com.mymsoft.myJIRA.service;
 
-import com.mymsoft.myJIRA.dto.IssueTypeDto;
+import com.mymsoft.myJIRA.dto.IssueTypeCreateDto;
 import com.mymsoft.myJIRA.model.IssueType;
 import com.mymsoft.myJIRA.repository.IssueTypeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
-        import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,7 +31,7 @@ class IssueTypeServiceImplTest {
     @Test
     void shouldCreateNewIssueTypeSuccessfully() {
         // 1. Arrange (Подготовка данных)
-        IssueTypeDto createDto = new IssueTypeDto();
+        IssueTypeCreateDto createDto = new IssueTypeCreateDto();
         createDto.setName("Bug");
         createDto.setIconUrl("/icons/bug.png");
         createDto.setColorHexCode("#FF0000");
@@ -44,7 +44,7 @@ class IssueTypeServiceImplTest {
         savedIssueType.setColorHexCode(createDto.getColorHexCode());
 
         // Настройка поведения мок-объекта репозитория
-        when(issueTypeRepository.save(any(IssueTypeDto.class))).thenReturn(savedIssueType);
+        when(issueTypeRepository.save(any(IssueType.class))).thenReturn(savedIssueType);
 
         // 2. Act (Выполнение действия)
         IssueType createdIssueType = issueTypeService.createIssueType(createDto);
