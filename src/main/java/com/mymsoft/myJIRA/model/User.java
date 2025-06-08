@@ -3,6 +3,8 @@ package com.mymsoft.myJIRA.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users",
     uniqueConstraints = {
@@ -14,17 +16,20 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "email", "username"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "email", nullable = false)
+    @EqualsAndHashCode.Include
     private String email;
 
     @Column(name = "username", nullable = false)
+    @EqualsAndHashCode.Include
     private String username;
 
     @Column(name = "password_hash", nullable = false)

@@ -17,7 +17,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "name", "bodyTemplate", "templateType", "isActive", "createdAt", "updatedAt"})
+@EqualsAndHashCode(of = {"id", "name", "bodyTemplate", "templateType", "isActive"})
 public class NotificationTemplate {
 
     @Id

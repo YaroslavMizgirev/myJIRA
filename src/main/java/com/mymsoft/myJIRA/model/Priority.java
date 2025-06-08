@@ -14,17 +14,20 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "level", "name"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Priority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "level", nullable = false)
+    @EqualsAndHashCode.Include
     private Integer level;
 
     @Column(name = "name", nullable = false, length = 50)
+    @EqualsAndHashCode.Include
     private String name;
 
     @Column(name = "icon_url")

@@ -14,19 +14,22 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "issue", "author", "content", "createdAt", "updatedAt"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "issue_id", nullable = false)
+    @EqualsAndHashCode.Include
     private Issue issue;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
+    @EqualsAndHashCode.Include
     private User author;
 
     @Lob

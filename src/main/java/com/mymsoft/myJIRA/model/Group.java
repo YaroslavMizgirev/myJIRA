@@ -13,14 +13,16 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "name", "isSystemGroup"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name", nullable = false, length = 100)
+    @EqualsAndHashCode.Include
     private String name;
 
     @Lob
@@ -28,5 +30,6 @@ public class Group {
     private String description;
 
     @Column(name = "is_system_group", nullable = false)
+    @EqualsAndHashCode.Include
     private Boolean isSystemGroup = false;
 }

@@ -4,6 +4,7 @@ import lombok.*;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"id", "name"})

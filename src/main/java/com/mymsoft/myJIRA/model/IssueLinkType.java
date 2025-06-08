@@ -14,16 +14,19 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "name", "inwardName"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class IssueLinkType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name", nullable = false, length = 100)
+    @EqualsAndHashCode.Include
     private String name;
 
     @Column(name = "inward_name", nullable = false, length = 100)
+    @EqualsAndHashCode.Include
     private String inwardName;
 }

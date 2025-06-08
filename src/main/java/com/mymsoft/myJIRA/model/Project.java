@@ -18,7 +18,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "name", "key", "lead", "createdAt", "updatedAt"})
+@EqualsAndHashCode(of = {"id", "name", "key", "lead"})
 public class Project {
 
     @Id

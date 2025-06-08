@@ -16,17 +16,20 @@ import java.util.Set;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "isDefault", "name"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Workflow {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "is_default", nullable = false)
+    @EqualsAndHashCode.Include
     private Boolean isDefault = false;
 
     @Column(name = "name", nullable = false)
+    @EqualsAndHashCode.Include
     private String name;
 
     // Связь с WorkflowStatus
@@ -39,7 +42,6 @@ public class Workflow {
     private Set<IssueStatus> statuses = new HashSet<>();
 
     // Связь с WorkflowTransition
-    // mappedBy указывает, что владение связью находится в WorkflowTransition
     @OneToMany(mappedBy = "workflow", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<WorkflowTransition> transitions = new HashSet<>();
 }

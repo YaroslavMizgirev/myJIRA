@@ -13,7 +13,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "issue", "uploader", "fileName", "fileType", "fileSizeBytes", "storagePath", "createdAt"})
+@EqualsAndHashCode(of = {"id", "issue", "uploader", "fileName", "fileType", "fileSizeBytes", "storagePath"})
 public class Attachment {
 
     @Id

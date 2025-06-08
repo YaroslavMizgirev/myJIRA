@@ -13,14 +13,16 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "name"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Permission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name", nullable = false, length = 100)
+    @EqualsAndHashCode.Include
     private String name;
 
     @Lob

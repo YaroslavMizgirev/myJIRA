@@ -12,18 +12,20 @@ import java.io.Serializable; // For composite primary key
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"user", "group"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @IdClass(UserGroup.UserGroupId.class) // Define composite primary key class
 public class UserGroup {
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @EqualsAndHashCode.Include
     private User user;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id", nullable = false)
+    @EqualsAndHashCode.Include
     private Group group;
 
     // Composite primary key class
@@ -32,9 +34,12 @@ public class UserGroup {
     @RequiredArgsConstructor
     @NoArgsConstructor
     @AllArgsConstructor
-    @EqualsAndHashCode(of = {"user", "group"})
+    @EqualsAndHashCode(onlyExplicitlyIncluded = true)
     public static class UserGroupId implements Serializable {
+        @EqualsAndHashCode.Include
         private Long user;
+
+        @EqualsAndHashCode.Include
         private Long group;
     }
 }

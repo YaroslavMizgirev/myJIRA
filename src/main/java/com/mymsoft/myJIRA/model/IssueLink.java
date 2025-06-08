@@ -16,23 +16,27 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "sourceIssue", "targetIssue", "linkType", "createdAt"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class IssueLink {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "source_issue_id", nullable = false)
+    @EqualsAndHashCode.Include
     private Issue sourceIssue;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "target_issue_id", nullable = false)
+    @EqualsAndHashCode.Include
     private Issue targetIssue;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "link_type_id", nullable = false)
+    @EqualsAndHashCode.Include
     private IssueLinkType linkType;
 
     @CreationTimestamp

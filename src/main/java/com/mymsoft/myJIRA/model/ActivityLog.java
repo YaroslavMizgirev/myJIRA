@@ -13,7 +13,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "issue", "actionType", "createdAt"})
+@EqualsAndHashCode(of = {"id", "issue", "actionType"})
 public class ActivityLog {
 
     @Id

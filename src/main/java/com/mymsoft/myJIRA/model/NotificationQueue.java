@@ -15,7 +15,7 @@ import java.time.Instant;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "status", "failedAttempts", "createdAt"})
+@EqualsAndHashCode(of = {"id", "status"})
 public class NotificationQueue {
 
     @Id

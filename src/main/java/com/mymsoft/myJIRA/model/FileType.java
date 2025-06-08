@@ -14,16 +14,19 @@ import lombok.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"id", "extension", "mimeType"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class FileType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "extension", nullable = false, length = 20)
+    @EqualsAndHashCode.Include
     private String extension;
 
     @Column(name = "mime_type", nullable = false, length = 100)
+    @EqualsAndHashCode.Include
     private String mimeType;
 }

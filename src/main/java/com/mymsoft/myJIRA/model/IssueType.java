@@ -13,14 +13,16 @@ import lombok.*;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id", "name"})
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class IssueType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "name", nullable = false, length = 50)
+    @EqualsAndHashCode.Include
     private String name;
 
     @Column(name = "icon_url")
