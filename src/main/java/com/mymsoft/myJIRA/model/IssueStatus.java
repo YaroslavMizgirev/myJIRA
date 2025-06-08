@@ -4,17 +4,17 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "issue_types",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "uk_issue_types_name", columnNames = {"name"}),
-        })
+@Table(name = "issue_statuses",
+    uniqueConstraints = {
+        @UniqueConstraint(name = "uk_issue_statuses_name", columnNames = {"name"})
+    })
 @Getter
 @Setter
 @RequiredArgsConstructor
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(of = {"id", "name"})
-public class IssueType {
+public class IssueStatus {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,10 +22,4 @@ public class IssueType {
 
     @Column(name = "name", nullable = false, length = 50)
     private String name;
-
-    @Column(name = "icon_url")
-    private String iconUrl;
-
-    @Column(name = "color_hex_code", length = 7)
-    private String colorHexCode;
 }

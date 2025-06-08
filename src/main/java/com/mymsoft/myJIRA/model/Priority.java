@@ -4,21 +4,25 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "issue_types",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "uk_issue_types_name", columnNames = {"name"}),
-        })
+@Table(name = "priorities",
+    uniqueConstraints = {
+            @UniqueConstraint(name = "uk_priorities_level", columnNames = {"level"}),
+            @UniqueConstraint(name = "uk_priorities_name", columnNames = {"name"}),
+    })
 @Getter
 @Setter
 @RequiredArgsConstructor
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"id", "name"})
-public class IssueType {
+@AllArgsConstructor
+@EqualsAndHashCode(of = {"id", "level", "name"})
+public class Priority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "level", nullable = false)
+    private Integer level;
 
     @Column(name = "name", nullable = false, length = 50)
     private String name;
