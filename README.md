@@ -8,7 +8,7 @@
 см. [схема данных](./data-scheme/myJIRA.sql).
 
 ## Этап 2: Разработка backend.
-Проект будем реализовывать с применением Spring Boot, на платформе Java 21 используя [Zulu JDK FX](https://www.azul.com/core-post-download/?endpoint=zulu&uuid=ba2dc6eb-1dae-44af-a4f5-760bb2c23553).
+Проект будем реализовывать с применением Spring Boot, на платформе Java 17 используя [Zulu JDK FX](https://www.azul.com/core-post-download/?endpoint=zulu&uuid=ba2dc6eb-1dae-44af-a4f5-760bb2c23553).
 
 ### Используемые зависимости
 - Spring Web;
